@@ -16,7 +16,8 @@ defmodule Things.Router do
   scope "/", Things do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", TodoController, :index
+    resources "/todos", TodoController, only: [:create, :update, :delete]
   end
 
   # Other scopes may use custom stacks.
